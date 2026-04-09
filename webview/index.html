@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>SprunkiPG</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<link rel="icon" type="image/png" href="icons/icon-512.png"/>
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="file.css"/>
+</head>
+<body>
+<noscript>
+<div id="notSupportedWrap">
+<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+</div>
+</noscript>
+<script>
+// Заглушка для InstantGamesBridge SDK — убирает рекламу и платформенные зависимости
+window.bridge = {
+  PLATFORM_ID: { YANDEX:'yandex', GAME_DISTRIBUTION:'game_distribution', MOCK:'mock' },
+  PLATFORM_MESSAGE: { GAME_READY:'game_ready', IN_GAME_LOADING_STARTED:'in_game_loading_started', IN_GAME_LOADING_STOPPED:'in_game_loading_stopped', GAMEPLAY_STARTED:'gameplay_started', GAMEPLAY_STOPPED:'gameplay_stopped', PLAYER_GOT_ACHIEVEMENT:'player_got_achievement', GAME_OVER:'game_over' },
+  platform: { id:'mock', language:navigator.language.slice(0,2)||'en', payload:'', tld:'', sendMessage:function(){} },
+  device: { type:'desktop' },
+  player: { id:'local', name:'Player', photos:[], isAuthorizationSupported:false, isAuthorized:false, authorize:function(){return Promise.resolve()}, getServerTime:function(){return Promise.resolve(Date.now())} },
+  game: { visibilityState:'visible', on:function(){} },
+  storage: { defaultType:'local_storage', isAvailable:function(){return true}, isSupported:function(){return true}, get:function(){return Promise.resolve({})}, set:function(){return Promise.resolve()}, delete:function(){return Promise.resolve()} },
+  advertisement: { minimumDelayBetweenInterstitial:60, bannerState:'loading', interstitialState:'closed', rewardedState:'closed', isBannerSupported:false, showBanner:function(){}, hideBanner:function(){}, showInterstitial:function(){}, showRewarded:function(){}, setMinimumDelayBetweenInterstitial:function(){}, on:function(){}, checkAdBlock:function(){return Promise.resolve(false)} },
+  social: { isShareSupported:false, isJoinCommunitySupported:false, isInviteFriendsSupported:false, isCreatePostSupported:false, isAddToFavoritesSupported:false, isAddToHomeScreenSupported:false, share:function(){return Promise.resolve()}, joinCommunity:function(){return Promise.resolve()}, inviteFriends:function(){return Promise.resolve()}, createPost:function(){return Promise.resolve()}, addToFavorites:function(){return Promise.resolve()}, addToHomeScreen:function(){return Promise.resolve()} },
+  leaderboard: { isSupported:false, isNativePopupSupported:false, isMultipleBoardsSupported:false, isSetScoreSupported:false, isGetScoreSupported:false, isGetEntriesSupported:false, setScore:function(){return Promise.resolve()}, getScore:function(){return Promise.resolve(0)}, getEntries:function(){return Promise.resolve([])} },
+  payments: { isSupported:false },
+  remoteConfig: { get:function(){return Promise.resolve({})}, values:{} },
+  clipboard: { isSupported:false },
+  initialize:function(){return Promise.resolve()},
+  isInitialized:true
+};
+</script>
+<script src="scripts/modernjscheck.js"></script>
+<script src="scripts/supportcheck.js"></script>
+<script src="scripts/main.js" type="module"></script>
+</body>
+</html>
