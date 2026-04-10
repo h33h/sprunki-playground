@@ -16,3 +16,4 @@ core/assets-raw/
 .playwright-mcp/
 *.png
 !core/assets/**/*.png
+!app/src/main/res/**/*.png
